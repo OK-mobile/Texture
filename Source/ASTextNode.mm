@@ -1571,7 +1571,7 @@ static NSAttributedString *DefaultTruncationAttributedString()
     
     ASTextKitAttributes attributes = {
         .attributedString = self,
-        .truncationAttributedString = truncationAttributedString,
+        .truncationAttributedString = truncation,
         .lineBreakMode = lineBreakMode,
         .maximumNumberOfLines = maximumNumberOfLines,
         .exclusionPaths = nil,
