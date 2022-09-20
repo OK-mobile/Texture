@@ -273,6 +273,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface NSAttributedString (OKSize)
+
+- (CGSize)as_sizeThatFitSize:(CGSize)fitSize
+  truncationAttributedString:(NSAttributedString *)truncationAttributedString
+               lineBreakMode:(NSLineBreakMode)lineBreakMode
+        maximumNumberOfLines:(NSUInteger)maximumNumberOfLines
+                shadowOffset:(CGSize)shadowOffset
+                shadowRadius:(CGFloat)shadowRadius;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #endif

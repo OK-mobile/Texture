@@ -1558,4 +1558,34 @@ static NSAttributedString *DefaultTruncationAttributedString()
 
 @end
 
+@implementation NSAttributedString (OKSize)
+
+- (CGSize)as_sizeThatFitSize:(CGSize)fitSize
+  truncationAttributedString:(NSAttributedString *)truncationAttributedString
+               lineBreakMode:(NSLineBreakMode)lineBreakMode
+        maximumNumberOfLines:(NSUInteger)maximumNumberOfLines
+                shadowOffset:(CGSize)shadowOffset
+                shadowRadius:(CGFloat)shadowRadius {
+    NSAttributedString *truncation = truncationAttributedString ?: DefaultTruncationAttributedString();
+    BOOL hasShadow = shadowRadius > 0;
+    
+    ASTextKitAttributes attributes = {
+        .attributedString = self,
+        .truncationAttributedString = truncationAttributedString,
+        .lineBreakMode = lineBreakMode,
+        .maximumNumberOfLines = maximumNumberOfLines,
+        .exclusionPaths = nil,
+        .pointSizeScaleFactors = nil,
+        .shadowOffset = shadowOffset,
+        .shadowColor = (hasShadow ? UIColor.blackColor : nil),
+        .shadowOpacity = (hasShadow ? 1.0 : 0.0),
+        .shadowRadius = shadowRadius,
+        .tintColor = nil
+    };
+    
+    return [[ASTextKitRenderer alloc] initWithTextKitAttributes:attributes constrainedSize:fitSize].size;
+}
+
+@end
+
 #endif
