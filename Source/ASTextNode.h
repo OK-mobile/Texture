@@ -273,7 +273,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface NSAttributedString (OKSize)
+@interface NSAttributedString (OKSizeCalculation)
 
 - (CGSize)as_sizeThatFitSize:(CGSize)fitSize
   truncationAttributedString:(nullable NSAttributedString *)truncationAttributedString

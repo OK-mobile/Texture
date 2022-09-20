@@ -1558,7 +1558,7 @@ static NSAttributedString *DefaultTruncationAttributedString()
 
 @end
 
-@implementation NSAttributedString (OKSize)
+@implementation NSAttributedString (OKSizeCalculation)
 
 - (CGSize)as_sizeThatFitSize:(CGSize)fitSize
   truncationAttributedString:(NSAttributedString *)truncationAttributedString
